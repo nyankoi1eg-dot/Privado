@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piscano · Meta Ads agosto 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f1ea; --paper:#fffdfa; --ink:#231c15; --ink2:#4a4037; --muted:#7a6e62; --line:#e8dfd3; --soft:#f3ece2;
+  --brand:#2563eb; --brand2:#1e40af; --brand-soft:#dbeafe;
+  --olive:#4f6b3a; --olive-soft:#e6eedd;
+  --blue:#3d6a8a; --blue-soft:#e2ecf3;
+  --good:#2f7a4b; --good-soft:#e2f0e6; --warn:#9a6400; --warn-soft:#f9eed6; --bad:#b0342b; --bad-soft:#f8e0dc;
+  --grid:#ece4d9; --axis:#9a8e81;
+  --e1:#6b7280; --e2:#3b82f6; --e3:#1e40af;
+  --cover-bg:#0f172a; --cover-ink:#fbf4ec; --cover-muted:#cbd5e1;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15110d; --paper:#1e1914; --ink:#f3ece3; --ink2:#d7ccbf; --muted:#a3968a; --line:#352d25; --soft:#28211b;
+    --brand:#60a5fa; --brand2:#93c5fd; --brand-soft:#1e3a8a;
+    --olive:#9cc07e; --olive-soft:#26301d; --blue:#86b6d6; --blue-soft:#1c2a35;
+    --good:#72c793; --good-soft:#1b3024; --warn:#e3b457; --warn-soft:#352a14; --bad:#ef8178; --bad-soft:#3a1e1b;
+    --grid:#2f2821; --axis:#7d7166; --e1:#9ca3af; --e2:#60a5fa; --e3:#93c5fd;
+    --cover-bg:#0f0b08; --cover-ink:#fbf4ec; --cover-muted:#cbd5e1;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15110d; --paper:#1e1914; --ink:#f3ece3; --ink2:#d7ccbf; --muted:#a3968a; --line:#352d25; --soft:#28211b;
+  --brand:#60a5fa; --brand2:#93c5fd; --brand-soft:#1e3a8a;
+  --olive:#9cc07e; --olive-soft:#26301d; --blue:#86b6d6; --blue-soft:#1c2a35;
+  --good:#72c793; --good-soft:#1b3024; --warn:#e3b457; --warn-soft:#352a14; --bad:#ef8178; --bad-soft:#3a1e1b;
+  --grid:#2f2821; --axis:#7d7166; --e1:#9ca3af; --e2:#60a5fa; --e3:#93c5fd;
+  --cover-bg:#0f0b08; --cover-ink:#fbf4ec; --cover-muted:#cbd5e1;
+}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,"Segoe UI",system-ui,sans-serif;font-feature-settings:"tnum" 1}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 16px 72px}
+h1,h2,.serif{font-family:Fraunces,Georgia,serif;letter-spacing:-.01em}
+h2{font-size:26px;line-height:1.2;margin:0}
+h3{font-size:15.5px;margin:0 0 6px;font-weight:700}
+p{margin:0}
+.muted{color:var(--muted)}
+
+/* Cover */
+.cover{background:var(--cover-bg);color:var(--cover-ink);border-radius:20px;padding:40px 40px 32px;position:relative;overflow:hidden}
+.cover:after{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(96,165,250,.45),rgba(96,165,250,0) 70%)}
+.cover .top{display:flex;justify-content:space-between;gap:16px;align-items:center;position:relative;z-index:1}
+.brandmark{display:flex;align-items:center;gap:12px}
+.logo{width:44px;height:44px;border-radius:12px;background:var(--brand);display:grid;place-items:center;font-family:Fraunces,serif;font-weight:700;font-size:20px;color:#fff}
+.brandmark b{display:block;font-size:15px}.brandmark span{font-size:12.5px;color:var(--cover-muted)}
+.pill{border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:5px 12px;font-size:12.5px;color:var(--cover-muted)}
+.cover h1{font-size:48px;line-height:1.05;margin:34px 0 10px;position:relative;z-index:1}
+.cover h1 em{font-style:normal;color:#93c5fd}
+.cover .lede{max-width:700px;color:var(--cover-muted);font-size:16px;position:relative;z-index:1}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:rgba(255,255,255,.12);border-radius:14px;overflow:hidden;margin-top:30px;position:relative;z-index:1}
+.kpi{background:rgba(255,255,255,.05);padding:16px 14px}
+.kpi .l{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--cover-muted)}
+.kpi .v{font-family:Fraunces,serif;font-size:28px;font-weight:700;margin-top:4px;line-height:1.1}
+.kpi .d{font-size:12px;color:var(--cover-muted);margin-top:4px}
+.kpi .d b{color:#9fe0b4;font-weight:600}.kpi .d i{font-style:normal;color:#ffb3a8;font-weight:600}
+
+/* TOC */
+.toc{margin:22px 0 0;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.toc-h{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:12px}
+.toc-btns{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.toc a{display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600;color:var(--ink);text-decoration:none;background:var(--brand-soft);border:1.5px solid var(--brand);border-radius:12px;padding:12px 14px;cursor:pointer;box-shadow:0 2px 0 var(--brand2);transition:transform .12s,background .12s,color .12s,box-shadow .12s;line-height:1.25}
+.toc a span{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--brand);color:#fff;font-family:Fraunces,serif;font-weight:700;font-size:13px}
+.toc a em{font-style:normal;margin-left:auto;color:var(--brand);font-weight:700;transition:transform .12s}
+.toc a:hover,.toc a:focus-visible{background:var(--brand);color:#fff;transform:translateY(-2px);box-shadow:0 4px 0 var(--brand2);outline:none}
+.toc a:hover span,.toc a:focus-visible span{background:#fff;color:var(--brand)}
+.toc a:hover em,.toc a:focus-visible em{color:#fff;transform:translateX(3px)}
+.toc a:active{transform:translateY(1px);box-shadow:0 1px 0 var(--brand2)}
+html{scroll-behavior:smooth}
+section{scroll-margin-top:16px}
+@media (max-width:860px){.toc-btns{grid-template-columns:1fr 1fr}}
+@media (max-width:420px){.toc-btns{grid-template-columns:1fr}}
+
+/* Sections */
+section{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px 32px;margin-top:22px}
+.sh{display:flex;gap:16px;align-items:flex-start;margin-bottom:18px}
+.num{flex:none;font-family:Fraunces,serif;font-weight:700;font-size:15px;color:var(--brand);background:var(--brand-soft);width:38px;height:38px;border-radius:10px;display:grid;place-items:center}
+.sh p{color:var(--muted);margin-top:4px;max-width:760px}
+.divider{display:flex;align-items:center;gap:12px;margin:40px 0 4px;color:var(--muted);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.divider:after{content:"";flex:1;height:1px;background:var(--line)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--soft)}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;letter-spacing:.06em;text-transform:uppercase}
+.tag.good{background:var(--good-soft);color:var(--good)}.tag.warn{background:var(--warn-soft);color:var(--warn)}
+.tag.bad{background:var(--bad-soft);color:var(--bad)}.tag.brand{background:var(--brand-soft);color:var(--brand)}
+.tag.blue{background:var(--blue-soft);color:var(--blue)}.tag.mute{background:var(--grid);color:var(--ink2)}
+ul.list{margin:10px 0 0;padding:0;list-style:none}
+ul.list li{padding:9px 0 9px 26px;border-top:1px solid var(--line);position:relative;font-size:14.5px}
+ul.list li:first-child{border-top:0}
+ul.list li:before{content:"";position:absolute;left:4px;top:16px;width:9px;height:9px;border-radius:50%;background:var(--good)}
+ul.list.w li:before{background:var(--warn)}
+
+/* Tables */
+.tbl{overflow-x:auto;margin-top:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+th{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;font-weight:600;border-bottom:1.5px solid var(--ink2)}
+tr.hl td{background:var(--good-soft)}tr.lo td{background:var(--bad-soft)}tr.cur td{background:var(--brand-soft);font-weight:600}
+tr.sep td{border-top:1.5px solid var(--ink2)}
+td .s{display:block;font-size:12px;color:var(--muted);font-weight:400}
+.delta-up{color:var(--good);font-weight:600}.delta-dn{color:var(--bad);font-weight:600}
+
+/* Insights */
+.ins{border-radius:12px;padding:14px 16px;margin-top:14px;background:var(--brand-soft);border:1px solid transparent;font-size:14.5px}
+.ins b:first-child{color:var(--brand2);display:block;margin-bottom:2px;font-size:14.5px}
+.ins.win{background:var(--good-soft)}.ins.win b:first-child{color:var(--good)}
+.ins.alert{background:var(--bad-soft)}.ins.alert b:first-child{color:var(--bad)}
+.ins.info{background:var(--blue-soft)}.ins.info b:first-child{color:var(--blue)}
+.ins ul{margin:6px 0 0;padding-left:18px}.ins li{margin:3px 0}
+
+/* Charts */
+.chart{margin-top:8px}
+.chart svg{width:100%;height:auto;display:block;overflow:visible}
+.chart text{fill:var(--muted);font:11px Inter,sans-serif}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-top:8px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-2px}
+.legend i.ln{height:3px;border-radius:2px;vertical-align:3px}
+
+@media (max-width:860px){
+  .kpis{grid-template-columns:repeat(3,1fr)}
+  .grid3{grid-template-columns:1fr}
+}
+@media (max-width:680px){
+  .cover{padding:26px 20px}.cover h1{font-size:34px}
+  .kpis{grid-template-columns:1fr 1fr}
+  .grid2{grid-template-columns:1fr}
+  section{padding:22px 18px}
+  .cover .top{flex-direction:column;align-items:flex-start}
+}
+@media print{
+  @page{size:A4;margin:12mm}
+  body{background:#fff;font-size:12px}.wrap{max-width:none;padding:0}
+  .toc{display:none}
+  section{break-inside:avoid-page;border-color:#ddd;margin-top:14px}
+  .pb{break-before:page}
+  .card,.ins{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- COVER -->
+<header class="cover">
+  <div class="top">
+    <div class="brandmark"><div class="logo">PS</div><div><b>Piscano</b><span>Informe mensual de Meta Ads · Facebook e Instagram</span></div></div>
+    <div class="pill">Agosto 2026</div>
+  </div>
+  <h1>Piscano <em>· agosto 2026</em></h1>
+  <div class="kpis">
+    <div class="kpi"><div class="l">Inversión</div><div class="v">S/ 516</div></div>
+    <div class="kpi"><div class="l">Alcance</div><div class="v">220k</div><div class="d">total personas únicas</div></div>
+    <div class="kpi"><div class="l">Impresiones</div><div class="v">303k</div><div class="d">total visualizaciones</div></div>
+    <div class="kpi"><div class="l">CTR</div><div class="v">0.27%</div><div class="d">tasa de clics</div></div>
+    <div class="kpi"><div class="l">CPM</div><div class="v">S/ 1.70</div><div class="d">costo por mil impresiones</div></div>
+    <div class="kpi"><div class="l">CPC</div><div class="v">S/ 0.57</div><div class="d">costo por clic</div></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Secciones del informe">
+  <div class="toc-h">Ir a la sección</div>
+  <div class="toc-btns">
+    <a href="#resumen"><span>01</span>Resumen<em>→</em></a><a href="#kampanas"><span>02</span>Campañas<em>→</em></a><a href="#detalles"><span>03</span>Detalles de agosto<em>→</em></a>
+    <a href="#insights"><span>04</span>Insights<em>→</em></a>
+  </div>
+</nav>
+
+<!-- 01 RESUMEN -->
+<section id="resumen">
+  <div class="sh"><div class="num">01</div><div><h2>Resumen ejecutivo</h2><p>Análisis del desempeño de agosto 2026.</p></div></div>
+  <div class="grid2">
+    <div class="card">
+      <span class="tag good">Lo que funcionó</span>
+      <ul class="list">
+        <li><b>Bajo CPM en Alcance y Frecuencia.</b> La campaña de alcance alcanzó a 97k personas por solo S/ 0.45 CPM.</li>
+        <li><b>Alto alcance total.</b> Con 516 soles se llegó a 220k personas (incluyendo repeticiones).</li>
+        <li><b>Reproducción de contenido eficiente.</b> La campaña de reproducción generó 174k impresiones a S/ 2.63 CPM.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="tag warn">Áreas de mejora</span>
+      <ul class="list w">
+        <li><b>CTR bajo.</b> El 0.27% de CTR indica que los usuarios no están interactuando mucho con los anuncios.</li>
+        <li><b>Múltiples campañas inactivas.</b> Hay varias campañas antiguas (2019-2024) que están en pausa.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 02 KAMPANAS -->
+<div class="divider">Campaña</div>
+<section id="kampanas">
+  <div class="sh"><div class="num">02</div><div><h2>Campañas activas en agosto</h2><p>Dos campañas principales generaron la mayoría de los resultados.</p></div></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Campaña</th><th>Inversión</th><th>Alcance</th><th>Impresiones</th><th>Clics</th><th>CPM</th><th>CPC</th><th>CTR</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td><b>Reproducciones</b><span class="s">Objetivo: maximizar vistas de contenido</span></td><td>S/ 457.67</td><td>123,142</td><td>174,281</td><td>680</td><td>S/ 2.63</td><td>S/ 0.67</td><td>0.39%</td></tr>
+      <tr><td><b>Alcance y Frecuencia</b><span class="s">Objetivo: llegar al máximo de personas</span></td><td>S/ 58.20</td><td>97,022</td><td>129,151</td><td>176</td><td>S/ 0.45</td><td>S/ 0.33</td><td>0.14%</td></tr>
+      <tr class="sep"><td><b>Total</b></td><td><b>S/ 515.87</b></td><td><b>220,164</b></td><td><b>303,432</b></td><td><b>856</b></td><td>S/ 1.70</td><td>S/ 0.60</td><td><b>0.28%</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 style="margin-top:26px">Comparativa de eficiencia</h3>
+  <div class="grid2">
+    <div>
+      <h3 style="margin-top:0">Costo por métrica</h3>
+      <div class="chart" id="chCosts"></div>
+      <div class="legend"><span><i style="background:var(--e2)"></i>Reproducciones</span><span><i style="background:var(--e3)"></i>Alcance y Frecuencia</span></div>
+    </div>
+    <div>
+      <h3 style="margin-top:0">Distribución de inversión</h3>
+      <div class="chart" id="chSpend"></div>
+      <div class="legend"><span><i style="background:var(--brand)"></i>Reproducciones (89%)</span><span><i style="background:var(--blue)"></i>Alcance (11%)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 DETALLES -->
+<div class="divider">Agosto 2026</div>
+<section id="detalles">
+  <div class="sh"><div class="num">03</div><div><h2>Análisis detallado</h2><p>Desempeño por métrica clave en agosto.</p></div></div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Métrica</th><th>Reproducciones</th><th>Alcance</th><th>Variación</th></tr></thead>
+    <tbody>
+      <tr><td>Inversión</td><td>S/ 457.67</td><td>S/ 58.20</td><td>7.9x</td></tr>
+      <tr><td>Alcance</td><td>123,142</td><td>97,022</td><td>+27%</td></tr>
+      <tr><td>Frecuencia</td><td>1.42x</td><td>1.33x</td><td>+6%</td></tr>
+      <tr><td>CPM</td><td>S/ 2.63</td><td>S/ 0.45</td><td>-83%</td></tr>
+      <tr class="cur"><td>CPC</td><td>S/ 0.67</td><td>S/ 0.33</td><td>-51%</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="ins win"><b>La campaña de Alcance y Frecuencia es altamente eficiente.</b> Logró llegar a 97k personas con solo S/ 0.45 CPM, un 83% más barato que la campaña de reproducciones. Es ideal para construcción de marca.</div>
+</section>
+
+<!-- 04 INSIGHTS -->
+<section id="insights" class="pb">
+  <div class="sh"><div class="num">04</div><div><h2>Recomendaciones</h2><p>Basadas en el desempeño de agosto.</p></div></div>
+
+  <div class="grid2">
+    <div class="ins info">
+      <b>Aumentar presupuesto en Alcance y Frecuencia.</b> El CPM de S/ 0.45 es excepcional. Invertir más en esta campaña llegaría a más personas con menor costo.
+    </div>
+    <div class="ins info">
+      <b>Optimizar creatividades.</b> El CTR bajo (0.28%) sugiere que el contenido no está resonando. Revisar copys y imágenes/videos para mejorar engagement.
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:12px">
+    <div class="ins alert">
+      <b>Limpiar campañas inactivas.</b> Hay más de 100 campañas de 2019-2024 en pausa. Esto desorganiza la cuenta. Considerar archivarlas.
+    </div>
+    <div class="ins">
+      <b>Probar con conversiones.</b> Las campañas actuales son de awareness. Evaluar si es viable migrar a campañas de conversión (leads, ventas) para medir retorno.
+    </div>
+  </div>
+</section>
+
+<p style="color:var(--muted);font-size:12.5px;text-align:center;margin-top:28px">Piscano · Informe de Meta Ads · agosto 2026</p>
+</div>
+
+<script>
+(function(){
+  const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const NS='http://www.w3.org/2000/svg';
+  const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+  const tx=(p,x,y,s,a)=>{const t=el('text',Object.assign({x,y},a||{}),p);t.textContent=s;return t};
+
+  // Costo por métrica
+  (function(){
+    const data=[['CPM',2.63,0.45],['CPC',0.67,0.33]];
+    const W=500,H=240,L=60,R=20,T=20,B=30,max=3;
+    const s=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'Costo por métrica'});
+    const ph=H-T-B,gw=(W-L-R)/data.length;
+
+    for(let g=0;g<=max;g+=1){const y=T+ph*(1-g/max);el('line',{x1:L,x2:W-R,y1:y,y2:y,stroke:css('--grid')},s);tx(s,L-10,y+4,'S/ '+g.toFixed(1),{'text-anchor':'end'});}
+
+    data.forEach((d,i)=>{
+      const x=L+i*gw+gw*0.2;
+      const bw=gw*0.35;
+      [[d[1],css('--e2')],[d[2],css('--e3')]].forEach(([v,c],j)=>{
+        const h=ph*v/max;
+        el('rect',{x:x+j*(bw+8),y:T+ph-h,width:bw,height:h,fill:c,rx:3},s);
+        tx(s,x+j*(bw+8)+bw/2,T+ph-h-4,'S/ '+v.toFixed(2),{'text-anchor':'middle','font-size':'11px'});
+      });
+      tx(s,x+bw+4,H-8,d[0],{'text-anchor':'middle'});
+    });
+
+    document.getElementById('chCosts').appendChild(s);
+  })();
+
+  // Distribución de inversión
+  (function(){
+    const W=500,H=300,CX=W/2,CY=H/2,R=90;
+    const s=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'Distribución de inversión'});
+
+    const data=[457.67,58.20];
+    const total=data.reduce((a,b)=>a+b);
+    const pcts=[data[0]/total*100,data[1]/total*100];
+    const colors=[css('--brand'),css('--blue')];
+
+    let angle=0;
+    data.forEach((v,i)=>{
+      const pct=pcts[i];
+      const rad=pct/100*2*Math.PI;
+      const x1=CX+R*Math.cos(angle);
+      const y1=CY+R*Math.sin(angle);
+      const x2=CX+R*Math.cos(angle+rad);
+      const y2=CY+R*Math.sin(angle+rad);
+
+      const large=rad>Math.PI?1:0;
+      const d=`M ${CX} ${CY} L ${x1} ${y1} A ${R} ${R} 0 ${large} 1 ${x2} ${y2} Z`;
+      el('path',{d,fill:colors[i],opacity:0.85},s);
+
+      const mid=angle+rad/2;
+      const lx=CX+R*0.65*Math.cos(mid);
+      const ly=CY+R*0.65*Math.sin(mid);
+      tx(s,lx,ly,Math.round(pct)+'%',{'text-anchor':'middle','font-weight':'600','font-size':'14px'});
+
+      angle+=rad;
+    });
+
+    document.getElementById('chSpend').appendChild(s);
+  })();
+})();
+</script>
+</body>
+</html>
