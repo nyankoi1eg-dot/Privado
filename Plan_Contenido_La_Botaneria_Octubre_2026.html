@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La Botanería · Septiembre y plan de octubre</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1ea;--paper:#fffdfa;--ink:#231c15;--ink2:#4a4037;--muted:#7a6e62;--line:#e8dfd3;--soft:#f3ece2;--brand:#b4521f;--brand2:#8a3a12;--brand-soft:#f7e5d8;--blue:#3d6a8a;--blue-soft:#e2ecf3;--good:#2f7a4b;--good-soft:#e2f0e6;--warn:#9a6400;--warn-soft:#f9eed6;--bad:#b0342b;--bad-soft:#f8e0dc;--grid:#ece4d9;--cover:#2a1d14}
+@media(prefers-color-scheme:dark){:root{--bg:#15110d;--paper:#1e1914;--ink:#f3ece3;--ink2:#d7ccbf;--muted:#a3968a;--line:#352d25;--soft:#28211b;--brand:#e58a55;--brand2:#f0a57a;--brand-soft:#3a2518;--blue:#86b6d6;--blue-soft:#1c2a35;--good:#72c793;--good-soft:#1b3024;--warn:#e3b457;--warn-soft:#352a14;--bad:#ef8178;--bad-soft:#3a1e1b;--grid:#2f2821;--cover:#0f0b08}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 16px 72px}h1,h2{font-family:Fraunces,Georgia,serif;letter-spacing:-.01em}h2{font-size:25px;margin:0;line-height:1.2}h3{font-size:15.5px;margin:22px 0 6px}p{margin:0}.muted{color:var(--muted)}
+.cover{background:var(--cover);color:#fbf4ec;border-radius:20px;padding:36px}.cover h1{font-size:42px;line-height:1.05;margin:8px 0 8px}.cover h1 em{font-style:normal;color:#f0a57a}.cover p{color:#cdbca8;max-width:720px}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,.12);border-radius:14px;overflow:hidden;margin-top:24px}.kpi{background:rgba(255,255,255,.05);padding:14px}.kpi .l{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#cdbca8}.kpi .v{font-family:Fraunces,serif;font-size:26px;font-weight:700;margin-top:4px}.kpi .d{font-size:12px;color:#cdbca8}
+section{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px 30px;margin-top:20px}.sh{display:flex;gap:14px;margin-bottom:14px}.num{flex:none;font:700 15px Fraunces,serif;color:var(--brand);background:var(--brand-soft);width:38px;height:38px;border-radius:10px;display:grid;place-items:center}.sh p{color:var(--muted);margin-top:3px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--soft)}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px}.tag.good{background:var(--good-soft);color:var(--good)}.tag.warn{background:var(--warn-soft);color:var(--warn)}.tag.bad{background:var(--bad-soft);color:var(--bad)}.tag.brand{background:var(--brand-soft);color:var(--brand)}
+.ins{border-radius:12px;padding:13px 15px;margin-top:12px;background:var(--brand-soft);font-size:14.5px}.ins b:first-child{color:var(--brand2);display:block}.ins.win{background:var(--good-soft)}.ins.win b:first-child{color:var(--good)}.ins.alert{background:var(--bad-soft)}.ins.alert b:first-child{color:var(--bad)}.ins.info{background:var(--blue-soft)}.ins.info b:first-child{color:var(--blue)}
+.tbl{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13.5px}th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}th:first-child,td:first-child{text-align:left;white-space:normal}th{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;border-bottom:1.5px solid var(--ink2)}tr.hl td{background:var(--good-soft)}tr.lo td{background:var(--bad-soft)}
+.chart svg{width:100%;height:auto;display:block}.chart text{fill:var(--muted);font:11px Inter,sans-serif}.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-top:6px}.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-2px}
+.ad{display:grid;grid-template-columns:34px 112px 1fr;gap:14px;border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--soft);margin-top:10px}.rk{width:34px;height:34px;border-radius:10px;background:var(--brand);color:#fff;font:700 16px Fraunces,serif;display:grid;place-items:center}
+.thumb{width:112px;height:112px;border-radius:10px;background:var(--brand-soft);display:grid;place-items:center;text-align:center;font-size:11px;color:var(--brand2);overflow:hidden;position:relative;padding:6px}.thumb:before{content:attr(data-t)}.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ab .s{display:block;font-size:12.5px;color:var(--muted)}.m{display:grid;grid-template-columns:repeat(4,auto);gap:4px 20px;justify-content:start;margin:8px 0;font-size:13px}.m i{display:block;font-style:normal;font-size:11px;color:var(--muted)}.ab p{font-size:13.5px;color:var(--ink2)}
+ul{margin:8px 0 0;padding-left:20px}li{margin:5px 0}.src{font-size:12.5px;color:var(--muted)}a{color:var(--brand)}
+.divider{margin:36px 0 0;color:var(--muted);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+@media(max-width:760px){.kpis{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.ad{grid-template-columns:30px 1fr}.thumb{display:none}.cover h1{font-size:32px}section{padding:20px 16px}.m{grid-template-columns:1fr 1fr}}
+@media print{body{background:#fff}section{break-inside:avoid;margin-top:12px}}
+</style></head><body><div class="wrap">
+
+<header class="cover"><span class="tag brand" style="background:rgba(255,255,255,.12);color:#f0a57a">Meta Ads · datos al 4 de octubre de 2026</span>
+<h1>La Botanería <em>· septiembre y plan de octubre</em></h1>
+<p>Qué pasó en septiembre, si conviene subir presupuesto o abrir otra plataforma, qué anuncios rindieron mejor y qué dice la categoría.</p>
+<div class="kpis">
+<div class="kpi"><div class="l">Inversión sep</div><div class="v">S/ 600</div><div class="d">WSP 413 · IG 188</div></div>
+<div class="kpi"><div class="l">Conversaciones</div><div class="v">144</div><div class="d">ago: 99</div></div>
+<div class="kpi"><div class="l">Costo / conv.</div><div class="v">S/ 2.87</div><div class="d">ago: S/ 2.04</div></div>
+<div class="kpi"><div class="l">Visitas al perfil</div><div class="v">1,390</div><div class="d">S/ 0.14 c/u · ago: 900</div></div>
+<div class="kpi"><div class="l">WhatsApp hoy</div><div class="v">Apagada</div><div class="d">sin gasto desde el 1 oct</div></div>
+</div></header>
+
+<section><div class="sh"><div class="num">01</div><div><h2>Resumen y decisión</h2><p>La respuesta corta a “¿subimos presupuesto o probamos otra plataforma?”.</p></div></div>
+<div class="grid2">
+<div class="card"><span class="tag good">Sí, subir</span><ul>
+<li><b>Visitas al perfil (Instagram).</b> Al duplicar el gasto diario (de S/ 5 a S/ 11) el costo por visita pasó de S/ 0.11 a S/ 0.12. Todavía no se ve saturación.</li>
+<li><b>WhatsApp, de forma escalonada.</b> Con S/ 22 al día el costo fue S/ 2.34, apenas 15% sobre agosto con el doble de gasto.</li></ul></div>
+<div class="card"><span class="tag warn">Con cuidado</span><ul>
+<li><b>El costo de cada conversación adicional ya es mayor que el promedio:</b> cerca de S/ 2.7 entre agosto y fines de septiembre, contra S/ 2.34 promedio.</li>
+<li><b>Solo probamos hasta S/ 27 al día.</b> Más arriba no hay datos, así que cualquier proyección es una suposición.</li>
+<li><b>Primero reactivar WhatsApp:</b> no tiene gasto desde el 1 de octubre.</li></ul></div></div>
+<div class="ins info"><b>Otra plataforma: sí, pero como prueba pequeña, no como reemplazo.</b> No hay evidencia de que Meta esté agotado para esta cuenta; lo que sí hay es una audiencia de WhatsApp pequeña y cara (CPM de S/ 20 contra S/ 6 en Instagram). Conviene destinar 10–15% a una prueba de TikTok con criterio de corte definido (sección 04).</div>
+</section>
+
+<div class="divider">Septiembre</div>
+<section><div class="sh"><div class="num">02</div><div><h2>Septiembre en números</h2><p>Dos campañas: WhatsApp (conversaciones) e Instagram (visitas al perfil).</p></div></div>
+<div class="tbl"><table><thead><tr><th>Campaña</th><th>Inversión</th><th>Resultado</th><th>Costo/resultado</th><th>CPM</th><th>Gasto/día</th></tr></thead><tbody>
+<tr><td><b>LB/AON/WSP</b><br><span class="muted">agosto (12–31)</span></td><td>S/ 201.83</td><td>99 conv.</td><td>S/ 2.04</td><td>S/ 24.46</td><td>S/ 10.1</td></tr>
+<tr class="hl"><td><b>LB/AON/WSP</b><br><span class="muted">septiembre</span></td><td>S/ 412.81</td><td>144 conv.</td><td>S/ 2.87</td><td>S/ 19.88</td><td>S/ 15.3</td></tr>
+<tr><td><b>LB/AON/NV</b><br><span class="muted">agosto (12–31)</span></td><td>S/ 101.51</td><td>900 visitas</td><td>S/ 0.11</td><td>S/ 5.61</td><td>S/ 5.1</td></tr>
+<tr class="hl"><td><b>LB/AON/NV</b><br><span class="muted">septiembre</span></td><td>S/ 187.78</td><td>1,390 visitas</td><td>S/ 0.14</td><td>S/ 6.20</td><td>S/ 6.3</td></tr></tbody></table></div>
+<h3>WhatsApp tuvo dos septiembres distintos</h3>
+<div class="tbl"><table><thead><tr><th>Tramo</th><th>Gasto/día</th><th>Inversión</th><th>Conversaciones</th><th>Costo/conv.</th><th>Conv. por 1,000 impr.</th></tr></thead><tbody>
+<tr><td>12–31 ago</td><td>S/ 10.1</td><td>S/ 201.83</td><td>99</td><td>S/ 2.04</td><td>12.0</td></tr>
+<tr class="lo"><td>4–16 sep</td><td>S/ 10.2</td><td>S/ 133.19</td><td>25</td><td>S/ 5.33</td><td>6.4</td></tr>
+<tr class="hl"><td>18–29 sep</td><td>S/ 21.7</td><td>S/ 259.91</td><td>111</td><td>S/ 2.34</td><td>7.1</td></tr></tbody></table></div>
+<div class="ins alert"><b>El mal tramo (4–16 sep) no fue por gastar poco.</b> Con el mismo gasto diario de agosto (S/ 10), el costo por conversación se duplicó y las conversaciones por cada 1,000 impresiones cayeron a la mitad. Algo cambió en ese tramo (anuncios, audiencia o competencia en la subasta) y la cuenta no lo identifica; conviene revisarlo con el equipo antes de repetirlo. La campaña también estuvo apagada del 1 al 3 de septiembre.</div>
+<h3>Gasto diario y conversaciones, 12 ago – 4 oct</h3>
+<div class="chart" id="chDaily"></div>
+<div class="legend"><span><i style="background:var(--blue)"></i>Gasto diario WhatsApp (S/)</span><span><i style="background:var(--brand)"></i>Conversaciones por día</span></div>
+</section>
+
+<div class="divider">Escalar presupuesto</div>
+<section><div class="sh"><div class="num">03</div><div><h2>Rendimientos decrecientes: qué dicen los datos</h2><p>Se ajustó la curva conversaciones = k × gasto^b con los datos diarios. Si b = 1, cada sol rinde igual; si b &lt; 1, cada sol adicional rinde menos.</p></div></div>
+<div class="tbl"><table><thead><tr><th>Campaña</th><th>Días usados</th><th>Rango de gasto/día</th><th>Elasticidad b</th><th>Intervalo 90%</th><th>Lectura</th></tr></thead><tbody>
+<tr><td><b>Visitas al perfil (NV)</b></td><td>54</td><td>S/ 2.4 – 13.5</td><td>0.98</td><td>0.87 – 1.09</td><td>Rinde lineal. Sin saturación visible.</td></tr>
+<tr><td><b>WhatsApp (WSP)</b></td><td>43</td><td>S/ 4.0 – 27.0</td><td>0.93</td><td>0.47 – 1.42</td><td>Muy incierto: no se distingue de lineal ni de fuertemente decreciente.</td></tr></tbody></table></div>
+<div class="grid2" style="margin-top:12px">
+<div><h3>Costo marginal vs. costo promedio (WhatsApp)</h3><div class="chart" id="chMarg"></div><div class="legend"><span><i style="background:var(--blue)"></i>Costo promedio por conversación</span><span><i style="background:var(--brand)"></i>Costo de la conversación adicional</span></div></div>
+<div><h3>Conversaciones vs. gasto diario (WhatsApp)</h3><div class="chart" id="chScatter"></div><div class="legend"><span><i style="background:var(--brand)"></i>Un día</span><span><i style="background:var(--ink2)"></i>Curva ajustada</span></div></div></div>
+<div class="ins win"><b>Visitas al perfil: se puede subir.</b> De S/ 5 a S/ 11 al día el costo pasó de S/ 0.11 a S/ 0.12 (1–4 oct: S/ 0.12 con S/ 11 al día). La curva es casi una línea recta.</div>
+<div class="ins"><b>WhatsApp: el costo de la conversación adicional es cerca de S/ 2.7.</b> Es la diferencia de gasto y de conversaciones entre agosto (S/ 10/día, 5.0 conv/día) y fines de septiembre (S/ 21.7/día, 9.3 conv/día). Es 15% más que el promedio, una señal suave de rendimientos decrecientes, pero está mezclada con el mal tramo de septiembre, por eso no es una medición limpia.</div>
+<h3>Cuánto puede costar una conversación para seguir siendo rentable</h3>
+<p class="muted" style="margin-bottom:8px">En la etapa web cada compra costaba S/ 66 (informe de agosto). Una conversación rinde igual si su costo es S/ 66 × la tasa de cierre.</p>
+<div class="tbl"><table><thead><tr><th>Tasa de cierre</th><th>Costo máximo por conversación</th><th>¿Cubre S/ 2.34 (hoy)?</th><th>¿Cubre S/ 2.7 (adicional)?</th></tr></thead><tbody>
+<tr class="lo"><td>2%</td><td>S/ 1.32</td><td>No</td><td>No</td></tr><tr><td>3%</td><td>S/ 1.98</td><td>No</td><td>No</td></tr><tr class="hl"><td>5%</td><td>S/ 3.30</td><td>Sí</td><td>Sí</td></tr><tr class="hl"><td>8%</td><td>S/ 5.28</td><td>Sí</td><td>Sí</td></tr></tbody></table></div>
+<div class="ins alert"><b>Falta el dato que decide todo: cuántas conversaciones cierran en venta.</b> Con cierre de 3% o menos, ni el costo actual se justifica contra la etapa web. Con 5% o más, hay margen para escalar. Necesitamos ese porcentaje (y el ticket promedio) del equipo de ventas antes de subir presupuesto de WhatsApp.</div>
+<h3>Reglas para escalar</h3>
+<ul><li><b>Reactivar WSP</b> a S/ 22 al día (el nivel que funcionó) y mantener 3–4 días.</li>
+<li><b>Subir 20% cada 3–4 días</b> hasta un tope de prueba de S/ 30–32 al día (solo se probó hasta S/ 27).</li>
+<li><b>Frenar y volver al escalón anterior</b> si el costo por conversación pasa de S/ 3.00 durante 3 días seguidos o la frecuencia supera 3.</li>
+<li><b>Visitas al perfil:</b> subir de S/ 11 a S/ 14–15 al día con la misma regla.</li>
+<li><b>Proyección con supuestos explícitos</b> (costo adicional S/ 2.7 en WhatsApp y S/ 0.13 en visitas): con WSP a S/ 28 y NV a S/ 14 al día durante octubre, ≈ 360 conversaciones y ≈ 3,400 visitas por S/ 1,300, frente a ≈ 290 y ≈ 2,700 por S/ 1,020 sin cambios. Son estimaciones, no resultados.</li></ul>
+</section>
+
+<div class="divider">Anuncios</div>
+<section><div class="sh"><div class="num">04</div><div><h2>Ranking de anuncios · 1 sep – 4 oct</h2><p>Ordenados por costo por conversación entre los de WhatsApp, ponderando el volumen. Imágenes traídas desde Meta Ads.</p></div></div>
+<div class="ad"><div class="rk">1</div><div class="thumb" data-t="Imagen (publicación)"><img src="https://external-ord5-1.xx.fbcdn.net/emg1/v/t13/6364364490772573142?url=https%3A%2F%2Fwww.facebook.com%2Fads%2Fimage%2F%3Fd%3DAQLyPenTNS5RztVPJGCB5EPltRUUpBPt9m6xUqIDD-M-B1YN-j-Evzu_PXTWNacReS2r8oIrsGEA45d-dhAH4wFBRoI7qQlV8LqaZOE45awRXm149sPkChH8X6JikcwjTN2q6WetjuMUXR_hEErZmpfN&fb_obo=1&utld=facebook.com&_nc_sid=58080a&_nc_ht=external-ord5-1.xx.fbcdn.net&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ccb=18-1&_nc_gid=8zhhGn-6Bz5czIuRhJ4uSg&edm=AEZPnVgEAAAA&_nc_zt=3&_nc_tpa=Q5bMBQIcSa9YA48bEiR6mUdqzbYOMmljtq6RibghmH82elK36c_GSyeulQSQMh8qSvi54PMb38LnzTDZ_g&oh=06_Q3_DAX8EoY9jpeKzobQ4lW0Uq5MftNXfMWRpJuYzpshA8aLr&oe=6AC4C7D3" alt="" loading="lazy" onerror="this.remove()"></div>
+<div class="ab"><b>“Hay antojos que no se conforman con uno solo”</b><span class="s">WhatsApp · Imagen (publicación)</span>
+<div class="m"><div><i>Costo/conv.</i><b>S/ 2.43</b></div><div><i>Conv./1k impr.</i><b>7.5</b></div><div><i>CTR</i><b>4.08%</b></div><div><i>Inversión</i><b>S/ 255.59</b></div></div>
+<p><span class="tag good">105 conversaciones</span> Mayor volumen y costo estable. Es el control para octubre.</p></div></div><div class="ad"><div class="rk">2</div><div class="thumb" data-t="Video"><img src="https://scontent-ord5-1.xx.fbcdn.net/v/t15.5256-10/773183657_1610385323812726_7905145215376602553_n.jpg?_nc_cat=101&ccb=1-7&_nc_ohc=LceRoTXRZl0Q7kNvwEETgIB&_nc_oc=AdoodtTq8p_3iBm5mzi2Hwmulm_UKylWsC9aAFHI9LYxXwQ_w2ncMPJfEesJCGAeLdo&_nc_zt=23&_nc_ht=scontent-ord5-1.xx&edm=AEZPnVgEAAAA&_nc_gid=8zhhGn-6Bz5czIuRhJ4uSg&_nc_tpa=Q5bMBQIHiXRqZtTW9P3ee9qXNQwa3QaqlBZ4sk3L0KYLjv2cwss3iMK7pWSU5LkqtKBlfWtV9sGy8VOPEQ&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=a7ce7f&_nc_sid=58080a&oh=00_AQO5Pu9spGYzecDhd3hMSZigGABKEPeN506qPgol5OvLLA&oe=6AC8AF77" alt="" loading="lazy" onerror="this.remove()"></div>
+<div class="ab"><b>“Todo es mucho mejor cuando hay bocaditos en la mesa”</b><span class="s">WhatsApp · Video</span>
+<div class="m"><div><i>Costo/conv.</i><b>S/ 2.19</b></div><div><i>Conv./1k impr.</i><b>8.8</b></div><div><i>CTR</i><b>4.28%</b></div><div><i>Inversión</i><b>S/ 30.63</b></div></div>
+<p><span class="tag good">14 conversaciones</span> Mejor costo por conversación, pero solo 14 resultados: falta muestra para escalarlo.</p></div></div><div class="ad"><div class="rk">3</div><div class="thumb" data-t="Video (asesoría)"><img src="https://scontent-ord5-1.xx.fbcdn.net/v/t15.5256-10/774361820_1090865819931263_7856199121672714402_n.jpg?_nc_cat=101&ccb=1-7&_nc_ohc=hTvbOt1zKtsQ7kNvwEdD0yG&_nc_oc=Adq0f0p5ejwokFFboULYzEtNtyMadRzFwE4RdfIPDxOixHQ1N3tS9FymiKkqLnlNiuU&_nc_zt=23&_nc_ht=scontent-ord5-1.xx&edm=AEZPnVgEAAAA&_nc_gid=8zhhGn-6Bz5czIuRhJ4uSg&_nc_tpa=Q5bMBQI3Ry_oXqMp9yosmbm5NZJt0cMovLxGv3mzDQbGsXwKA61KmWHsUFIX1CxKnCOxc6L_1xe5IxxtCA&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=a7ce7f&_nc_sid=58080a&oh=00_AQO17w0dRjLqYl4AOgJZfuYWkTntgvTuuoKttuAn73eeKw&oe=6AC8B02B" alt="" loading="lazy" onerror="this.remove()"></div>
+<div class="ab"><b>“¿Cuántas personas son? ¿Qué les gusta? ¿Cuánto pedir?”</b><span class="s">WhatsApp · Video (asesoría)</span>
+<div class="m"><div><i>Costo/conv.</i><b>S/ 4.82</b></div><div><i>Conv./1k impr.</i><b>5.8</b></div><div><i>CTR</i><b>4.03%</b></div><div><i>Inversión</i><b>S/ 9.64</b></div></div>
+<p><span class="tag warn">2 conversaciones</span> Solo 347 impresiones: no concluyente. Merece más presupuesto para medirlo.</p></div></div><div class="ad"><div class="rk">4</div><div class="thumb" data-t="Video"><img src="https://scontent-ord5-2.xx.fbcdn.net/v/t15.5256-10/825149075_4528662280686819_6517043_n.jpg?_nc_cat=107&ccb=1-7&_nc_ohc=GXxqVhZiRjoQ7kNvwGGNI8l&_nc_oc=AdqB4yyEA9byq0p6d6Ka_uGWFKQSzEPOSAveODW-T70HTL5lYYygJqKS5HNILSoYKno&_nc_zt=23&_nc_ht=scontent-ord5-2.xx&edm=AEZPnVgEAAAA&_nc_gid=8zhhGn-6Bz5czIuRhJ4uSg&_nc_tpa=Q5bMBQIRRWWBUfoBSdDpbbSU6bP1BgDmPRUD8AJBOJpWB4xSBltrEPo3vtnUu-rPbmunyGews9EYwYlBYg&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=a7ce7f&_nc_sid=58080a&oh=00_AQPW623y59d50cdppViN3nIa49kYOmhz9p7pu-Ge2cjQlA&oe=6AC8B1B1" alt="" loading="lazy" onerror="this.remove()"></div>
+<div class="ab"><b>“Porque cuando hay buena comida, siempre hay algo para todos”</b><span class="s">WhatsApp · Video</span>
+<div class="m"><div><i>Costo/conv.</i><b>S/ 5.08</b></div><div><i>Conv./1k impr.</i><b>4.9</b></div><div><i>CTR</i><b>4.94%</b></div><div><i>Inversión</i><b>S/ 116.95</b></div></div>
+<p><span class="tag bad">23 conversaciones</span> Tiene el CTR más alto pero el peor costo: atrae clics que no se vuelven conversación. Concentró 28% del gasto de WhatsApp.</p></div></div>
+<div class="ad" style="margin-top:16px"><div class="rk" style="background:var(--blue)">IG</div><div class="thumb" data-t="Publicación IG"><img src="https://scontent-ord5-1.xx.fbcdn.net/v/t45.1600-4/561705585_25159222140349877_4121540396876465677_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=ff4730&_nc_ohc=OHovACosTTwQ7kNvwHBI4xu&_nc_oc=AdrQvCR8mQgXy1NJXA0mvm3jnfTYrWBa61-NfH0Pfn2Tmdg35trytc00r9xDOXlC9EY&_nc_zt=1&_nc_ht=scontent-ord5-1.xx&edm=AEZPnVgEAAAA&_nc_gid=8zhhGn-6Bz5czIuRhJ4uSg&_nc_tpa=Q5bMBQLw-Ohe-EPlZWlqTifcdWcXkoqytgiPCJkYPUa39yhSEF15sZnsIPfMGh5Ha7UhNumBMoC8igMCMQ&oh=00_AQMW1BTF9_H4th3aY7SNl8b4VrXUW4SYb-Rcg1OfXHLyvQ&oe=6AC8AA39" alt="" loading="lazy" onerror="this.remove()"></div><div class="ab"><b>“Bocaditos irresistibles para reuniones memorables”</b><span class="s">Visitas al perfil · publicación de Instagram</span><div class="m"><div><i>Costo/visita</i><b>S/ 0.13</b></div><div><i>CPM</i><b>S/ 6.06</b></div><div><i>CTR</i><b>4.59%</b></div><div><i>Inversión</i><b>S/ 232.21</b></div></div><p><span class="tag good">1,749 visitas al perfil</span> Único anuncio de la campaña de perfil; rinde estable. Ranking aparte porque el objetivo es distinto.</p></div></div>
+<div class="ins"><b>Qué hacer con el ranking.</b> “Hay antojos…” (imagen) es el control. “Cuando hay buena comida…” consumió 28% del gasto de WhatsApp con el doble del costo; la diferencia contra “Hay antojos” es 7.5 vs 4.9 conversaciones por 1,000 impresiones (z ≈ 1.9, borderline: sugiere pero no prueba). Pausarlo y repartir ese gasto es razonable. El video “¿Cuántas personas son?” (asesoría) tiene la mejor idea de producto pero solo 347 impresiones: darle presupuesto para medirlo.</div>
+<p class="src" style="margin-top:8px">Nota: las miniaturas vienen de Meta con baja resolución y los enlaces caducan. Si una imagen no carga, se muestra el formato del anuncio. Metricool no sirvió para esto: solo tiene conectadas las marcas Decor Center, no La Botanería.</p>
+</section>
+
+<div class="divider">Categoría</div>
+<section><div class="sh"><div class="num">05</div><div><h2>Tendencias de contenido en la categoría</h2><p>Gastronomía, catering y bocaditos en redes. Búsqueda web, fuentes abajo; no se encontró información específica de Perú.</p></div></div>
+<div class="grid2"><div class="card"><span class="tag brand">Formato</span><ul>
+<li><b>Video vertical de menos de 60 segundos</b> sigue dominando (Reels, TikTok, Shorts), con más mezcla de carruseles, fotos y piezas híbridas.</li>
+<li><b>Autenticidad sobre producción:</b> un video grabado con celular en una cocina real rinde más engagement que uno de estudio con guion corporativo.</li>
+<li><b>Contenido que responde preguntas</b> (cuánto pedir, cómo armar la mesa, cómo se hace) en lugar de solo captar atención.</li></ul></div>
+<div class="card"><span class="tag brand">Plataforma y venta</span><ul>
+<li><b>TikTok como buscador:</b> se cita que ~40% de la Gen Z lo usa antes que Google para decidir restaurantes y productos.</li>
+<li><b>TikTok lidera engagement en catering (4.2%)</b> según un agregador de estadísticas; es una cifra de terceros sin metodología verificada.</li>
+<li><b>UGC y reacciones al sabor:</b> contenido de clientes y creadores que vuelve creíble el antojo; micro-creadores como vía de alcance.</li>
+<li><b>Compra integrada:</b> del video al pedido en pocos toques (en Perú el equivalente es el botón de WhatsApp).</li></ul></div></div>
+<div class="ins info"><b>Qué significa para La Botanería.</b> La idea de “asesoría para armar el pedido” (¿cuántas personas son? ¿cuánto pedir?) calza con la tendencia de contenido que responde preguntas reales, y hoy es el anuncio con menos presupuesto. Las ocasiones (feriados, reuniones, fechas) ya funcionaron en el histórico de la cuenta: ese es el gancho a repetir.</div>
+<p class="src" style="margin-top:10px">Fuentes: <a href="https://thekingofcontent.agency/blog/marketing-redes-sociales-2026-tendencias-marcas">The King of Content</a> · <a href="https://rodanet.com/tendencias-redes-sociales/">Rodanet</a> · <a href="https://nort3.com/noticias/tendencias-redes-sociales-2026/">Nort3</a> · <a href="https://gourmedia.es/2026/01/11/tendencias-en-redes-2026-%F0%9F%93%B2%F0%9F%8C%8F/">Gourmedia</a> · <a href="https://www.webtonic.io/blog/food-service-catering-social-media-marketing-statistics">Webtonic (estadísticas de catering)</a> · <a href="https://www.homemadesocial.com/blog/content-mix-that-sells-food-and-beverage-brands">Homemade Social</a> · <a href="https://ugcslalom.com/en/blog/tendencias-ugc">UGC Slalom</a>. Son resúmenes de la búsqueda, no se abrieron los artículos completos.</p>
+</section>
+
+<div class="divider">Octubre</div>
+<section><div class="sh"><div class="num">06</div><div><h2>Plan de octubre</h2><p>Distribución de presupuesto y pruebas. La parrilla de contenido del Sheet no se pudo leer (ver pendientes), así que el calendario día a día queda por cruzar.</p></div></div>
+<div class="tbl"><table><thead><tr><th>Línea</th><th>Gasto/día</th><th>Mes</th><th>Objetivo</th><th>Regla</th></tr></thead><tbody>
+<tr><td><b>WhatsApp (WSP)</b></td><td>S/ 22 → 28</td><td>≈ S/ 780</td><td>≈ 300–360 conversaciones</td><td>Escalar 20% cada 3–4 días; frenar si &gt; S/ 3.00</td></tr>
+<tr><td><b>Visitas al perfil (NV)</b></td><td>S/ 11 → 14</td><td>≈ S/ 390</td><td>≈ 3,000 visitas</td><td>Mantener costo ≤ S/ 0.15</td></tr>
+<tr><td><b>Prueba TikTok</b></td><td>S/ 4–5</td><td>≈ S/ 150</td><td>Aprender, no vender</td><td>Cortar si en 14 días no baja de S/ 4 por conversación o S/ 0.30 por visita</td></tr>
+<tr><td><b>Prueba de creativos</b></td><td>dentro de WSP</td><td>—</td><td>Comparar contra “Hay antojos”</td><td>≥ 100 conversaciones por anuncio antes de decidir</td></tr>
+<tr class="hl"><td><b>Total</b></td><td></td><td><b>≈ S/ 1,320</b></td><td></td><td>Sep fue S/ 600: es +120%; si el presupuesto es menor, priorizar NV y la prueba de WSP</td></tr></tbody></table></div>
+<h3>Pruebas de creativos</h3><ul>
+<li><b>Control:</b> “Hay antojos que no se conforman con uno solo” (imagen).</li>
+<li><b>Retador 1:</b> video de asesoría “¿Cuántas personas son?” con la llamada a escribir en los primeros 3 segundos.</li>
+<li><b>Retador 2:</b> un video de ocasión (feriado, reunión, fecha de octubre) en formato celular, sin producción de estudio.</li>
+<li><b>Pausar:</b> “Cuando hay buena comida…” salvo que mejore con una segunda versión.</li></ul>
+<h3>Qué falta para cerrar el plan</h3><ul>
+<li><b>Parrilla de contenido:</b> el Sheet no se pudo leer. Hay que habilitar <code>docs.google.com</code> en la red del entorno (Network access → Custom → Allowed domains) o pegar la pestaña como CSV, y se cruza fecha por fecha.</li>
+<li><b>Tasa de cierre y ticket</b> de las conversaciones de WhatsApp (define el tope de costo).</li>
+<li><b>Por qué se apagó WSP el 1 de octubre</b> y qué cambió el 4–16 de septiembre.</li>
+<li><b>Presupuesto aprobado de octubre.</b></li></ul>
+</section>
+<p class="src" style="text-align:center;margin-top:24px">La Botanería · Informe de Meta Ads · septiembre 2026. Datos: Meta Ads, 12 ago – 4 oct 2026.</p>
+</div>
+<script>
+const D={"dates": ["2026-08-12", "2026-08-13", "2026-08-14", "2026-08-15", "2026-08-16", "2026-08-17", "2026-08-18", "2026-08-19", "2026-08-20", "2026-08-21", "2026-08-22", "2026-08-23", "2026-08-24", "2026-08-25", "2026-08-26", "2026-08-27", "2026-08-28", "2026-08-29", "2026-08-30", "2026-08-31", "2026-09-01", "2026-09-02", "2026-09-03", "2026-09-04", "2026-09-05", "2026-09-06", "2026-09-07", "2026-09-08", "2026-09-09", "2026-09-10", "2026-09-11", "2026-09-12", "2026-09-13", "2026-09-14", "2026-09-15", "2026-09-16", "2026-09-17", "2026-09-18", "2026-09-19", "2026-09-20", "2026-09-21", "2026-09-22", "2026-09-23", "2026-09-24", "2026-09-25", "2026-09-26", "2026-09-27", "2026-09-28", "2026-09-29", "2026-09-30", "2026-10-01", "2026-10-02", "2026-10-03", "2026-10-04"], "wsp_sp": [4.04, 9.42, 8.9, 12.05, 11.58, 13.84, 10.53, 12.56, 11.47, 8.28, 5.22, 10.08, 10.19, 12.43, 10.91, 10.07, 10.46, 9.36, 12.43, 8.01, 0.0, 0.0, 0.0, 6.83, 7.42, 10.88, 7.11, 10.32, 10.41, 10.68, 9.08, 11.3, 12.3, 13.19, 13.31, 10.36, 9.89, 14.88, 20.13, 24.56, 26.78, 25.41, 19.08, 18.91, 22.51, 18.19, 21.5, 20.99, 26.97, 9.82, 0.0, 0.0, 0.0, 0.0], "wsp_res": [5.0, 3.0, 3.0, 6.0, 5.0, 5.0, 6.0, 7.0, 5.0, 3.0, 2.0, 5.0, 4.0, 8.0, 7.0, 3.0, 7.0, 4.0, 10.0, 1.0, 0, 0, 0, 0, 0, 5.0, 2.0, 6.0, 1.0, 2.0, 0, 2.0, 4.0, 1.0, 2.0, 0, 3.0, 7.0, 8.0, 8.0, 15.0, 7.0, 2.0, 4.0, 14.0, 9.0, 10.0, 12.0, 15.0, 5.0, 0, 0, 0, 0], "nv_sp": [2.37, 5.77, 3.96, 5.14, 6.47, 5.79, 4.98, 4.83, 4.9, 4.87, 4.91, 6.05, 4.78, 5.59, 5.4, 4.88, 4.91, 4.92, 6.14, 4.85, 5.99, 5.08, 5.09, 3.89, 3.22, 5.08, 3.38, 4.7, 3.59, 3.97, 3.73, 3.43, 4.96, 4.07, 3.69, 3.58, 3.67, 7.14, 8.45, 13.48, 10.0, 9.7, 11.07, 8.17, 8.34, 8.83, 11.37, 8.31, 9.31, 2.49, 13.24, 12.94, 12.28, 5.87], "nv_res": [26.0, 79.0, 26.0, 45.0, 53.0, 53.0, 37.0, 31.0, 52.0, 54.0, 42.0, 53.0, 37.0, 44.0, 68.0, 39.0, 40.0, 39.0, 45.0, 37.0, 45.0, 35.0, 42.0, 24.0, 21.0, 40.0, 27.0, 30.0, 29.0, 27.0, 36.0, 24.0, 34.0, 20.0, 25.0, 31.0, 25.0, 61.0, 78.0, 111.0, 75.0, 87.0, 88.0, 59.0, 52.0, 57.0, 67.0, 67.0, 52.0, 21.0, 106.0, 112.0, 96.0, 45.0]};
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const NS='http://www.w3.org/2000/svg';
+const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+const tx=(p,x,y,s,a)=>{const t=el('text',Object.assign({x,y},a||{}),p);t.textContent=s;return t};
+function daily(){const W=1000,H=260,L=40,R=40,T=14,B=30;const s=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'Gasto diario y conversaciones'});
+const n=D.dates.length,gw=(W-L-R)/n,ph=H-T-B,mS=30,mR=16;
+for(let g=0;g<=30;g+=10){const y=T+ph*(1-g/mS);el('line',{x1:L,x2:W-R,y1:y,y2:y,stroke:css('--grid')},s);tx(s,L-6,y+4,'S/ '+g,{'text-anchor':'end'});}
+for(let g=0;g<=15;g+=5)tx(s,W-R+6,T+ph*(1-g/mR)+4,g,{});
+let d='';D.dates.forEach((dt,i)=>{const x=L+i*gw+gw*.15,w=gw*.7,h=ph*D.wsp_sp[i]/mS;el('rect',{x,y:T+ph-h,width:w,height:h,fill:css('--blue'),rx:2,opacity:.8},s);
+const cy=T+ph*(1-D.wsp_res[i]/mR);d+=(i?'L':'M')+(x+w/2)+' '+cy+' ';if(i%7===0)tx(s,x,H-10,dt.slice(5).replace('-','/'),{});});
+el('path',{d,fill:'none',stroke:css('--brand'),'stroke-width':2},s);
+const i1=D.dates.indexOf('2026-10-01');tx(s,L+i1*gw,T+12,'WSP apagada →',{style:'fill:'+css('--bad')+';font-weight:600'});
+document.getElementById('chDaily').appendChild(s);}
+function marg(){const W=500,H=240,L=44,R=10,T=18,B=40,max=6;const s=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img'});
+const rows=[['12–31 ago · S/10/día',2.04,null],['4–16 sep · S/10/día',5.33,null],['18–29 sep · S/22/día',2.34,2.7]];const ph=H-T-B,gw=(W-L-R)/rows.length;
+for(let g=0;g<=max;g+=2){const y=T+ph*(1-g/max);el('line',{x1:L,x2:W-R,y1:y,y2:y,stroke:css('--grid')},s);tx(s,L-6,y+4,'S/ '+g,{'text-anchor':'end'});}
+rows.forEach((r,i)=>{const bw=gw*.3,x=L+i*gw+gw*.12;[[r[1],'--blue'],[r[2],'--brand']].forEach(([v,c],j)=>{if(v==null)return;const h=ph*v/max,xx=x+j*(bw+4);el('rect',{x:xx,y:T+ph-h,width:bw,height:h,fill:css(c),rx:3},s);tx(s,xx+bw/2,T+ph-h-4,v.toFixed(2),{'text-anchor':'middle'});});
+tx(s,x+bw,H-20,r[0].split(' · ')[0],{'text-anchor':'middle'});tx(s,x+bw,H-8,r[0].split(' · ')[1],{'text-anchor':'middle'});});
+document.getElementById('chMarg').appendChild(s);}
+function scatter(){const W=500,H=240,L=40,R=10,T=14,B=30,mx=30,my=16;const s=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img'});const pw=W-L-R,ph=H-T-B;
+for(let g=0;g<=my;g+=4){const y=T+ph*(1-g/my);el('line',{x1:L,x2:W-R,y1:y,y2:y,stroke:css('--grid')},s);tx(s,L-6,y+4,g,{'text-anchor':'end'});}
+for(let g=0;g<=mx;g+=10)tx(s,L+pw*g/mx,H-12,'S/ '+g,{'text-anchor':'middle'});
+const pts=[];D.dates.forEach((dt,i)=>{if(D.wsp_sp[i]>3&&D.wsp_res[i]>0)pts.push([D.wsp_sp[i],D.wsp_res[i]]);});
+pts.forEach(p=>el('circle',{cx:L+pw*p[0]/mx,cy:T+ph*(1-p[1]/my),r:3.2,fill:css('--brand'),opacity:.7},s));
+const xs=pts.map(p=>Math.log(p[0])),ys=pts.map(p=>Math.log(p[1])),m=a=>a.reduce((u,v)=>u+v,0)/a.length,mxl=m(xs),myl=m(ys);
+const b=xs.reduce((u,x,i)=>u+(x-mxl)*(ys[i]-myl),0)/xs.reduce((u,x)=>u+(x-mxl)**2,0),a=myl-b*mxl;let d='';
+for(let x=4;x<=28;x+=1){const y=Math.exp(a)*x**b;d+=(x===4?'M':'L')+(L+pw*x/mx)+' '+(T+ph*(1-y/my))+' ';}
+el('path',{d,fill:'none',stroke:css('--ink2'),'stroke-width':2},s);document.getElementById('chScatter').appendChild(s);}
+daily();marg();scatter();
+</script></body></html>
