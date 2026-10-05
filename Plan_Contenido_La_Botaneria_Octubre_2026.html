@@ -59,7 +59,11 @@ ul{margin:8px 0 0;padding-left:20px}li{margin:5px 0}.src{font-size:12.5px;color:
 <tr><td>12–31 ago</td><td>S/ 10.1</td><td>S/ 201.83</td><td>99</td><td>S/ 2.04</td><td>12.0</td></tr>
 <tr class="lo"><td>4–16 sep</td><td>S/ 10.2</td><td>S/ 133.19</td><td>25</td><td>S/ 5.33</td><td>6.4</td></tr>
 <tr class="hl"><td>18–29 sep</td><td>S/ 21.7</td><td>S/ 259.91</td><td>111</td><td>S/ 2.34</td><td>7.1</td></tr></tbody></table></div>
-<div class="ins alert"><b>El mal tramo (4–16 sep) no fue por gastar poco.</b> Con el mismo gasto diario de agosto (S/ 10), el costo por conversación se duplicó y las conversaciones por cada 1,000 impresiones cayeron a la mitad. Algo cambió en ese tramo (anuncios, audiencia o competencia en la subasta) y la cuenta no lo identifica; conviene revisarlo con el equipo antes de repetirlo. La campaña también estuvo apagada del 1 al 3 de septiembre.</div>
+<div class="ins alert"><b>El tramo malo (4–16 sep) se explica por qué anuncio llevó el gasto, no por cuánto se gastó.</b> Meta concentró 78% del gasto en el anuncio más débil, “Porque cuando hay buena comida…”, a S/ 5.19 por conversación. El registro de cambios de la cuenta no muestra ediciones manuales en ese período, así que fue la entrega automática; por qué Meta eligió ese anuncio no se puede saber con los datos. La campaña también estuvo apagada del 1 al 3 de septiembre.</div>
+<div class="tbl"><table><thead><tr><th>Tramo</th><th>Anuncio que concentró el gasto de WhatsApp</th><th>Su parte del gasto</th><th>Costo/conv.</th></tr></thead><tbody>
+<tr class="hl"><td>12–31 ago</td><td>“Todo es mucho mejor cuando hay bocaditos…” (video)</td><td>78% (S/ 158 de S/ 202)</td><td>S/ 1.98</td></tr>
+<tr class="lo"><td>4–16 sep</td><td>“Porque cuando hay buena comida…” (video)</td><td>78% (S/ 104 de S/ 133)</td><td>S/ 5.19</td></tr>
+<tr class="hl"><td>18–29 sep</td><td>“Hay antojos que no se conforman con uno solo” (imagen)</td><td>91% (S/ 235 de S/ 260)</td><td>S/ 2.43</td></tr></tbody></table></div>
 <h3>Gasto diario y conversaciones, 12 ago – 4 oct</h3>
 <div class="chart" id="chDaily"></div>
 <div class="legend"><span><i style="background:var(--blue)"></i>Gasto diario WhatsApp (S/)</span><span><i style="background:var(--brand)"></i>Conversaciones por día</span></div>
@@ -67,14 +71,14 @@ ul{margin:8px 0 0;padding-left:20px}li{margin:5px 0}.src{font-size:12.5px;color:
 
 <div class="divider">Escalar presupuesto</div>
 <section><div class="sh"><div class="num">03</div><div><h2>Rendimientos decrecientes: qué dicen los datos</h2><p>Se ajustó la curva conversaciones = k × gasto^b con los datos diarios. Si b = 1, cada sol rinde igual; si b &lt; 1, cada sol adicional rinde menos.</p></div></div>
-<div class="ins win" style="margin-top:0"><b>Conclusión: sí conviene aumentar, cerca de 27% (WhatsApp de S/ 22 a S/ 28 al día y visitas al perfil de S/ 11 a S/ 14), ≈ +S/ 280 al mes sobre el nivel actual, y no más allá de S/ 27–30 al día hasta tener datos.</b> Se llega a esa cifra porque cada sol adicional todavía rinde cerca de 87% de lo que rinde el promedio (S/ 2.7 por conversación adicional contra S/ 2.34), sin saturación visible en la curva dentro del rango probado. Para que valga la pena, al menos 4.1% de las conversaciones deben cerrar en venta (S/ 2.7 ÷ S/ 66).</div><div class="tbl"><table><thead><tr><th>Campaña</th><th>Días usados</th><th>Rango de gasto/día</th><th>Elasticidad b</th><th>Intervalo 90%</th><th>Lectura</th></tr></thead><tbody>
+<div class="ins win" style="margin-top:0"><b>Conclusión: subir cerca de 27% (WhatsApp de S/ 22 a S/ 28 al día, visitas de S/ 11 a S/ 14; ≈ +S/ 280 al mes) y no pasar de S/ 27–30 al día hasta tener datos.</b> Cada sol adicional todavía rinde ~87% del promedio (S/ 2.7 contra S/ 2.34) y no hay saturación visible en el rango probado. Vale la pena si al menos 4.1% de las conversaciones cierran (S/ 2.7 ÷ S/ 66).</div><div class="tbl"><table><thead><tr><th>Campaña</th><th>Días usados</th><th>Rango de gasto/día</th><th>Elasticidad b</th><th>Intervalo 90%</th><th>Lectura</th></tr></thead><tbody>
 <tr><td><b>Visitas al perfil (NV)</b></td><td>54</td><td>S/ 2.4 – 13.5</td><td>0.98</td><td>0.87 – 1.09</td><td>Rinde lineal. Sin saturación visible.</td></tr>
 <tr><td><b>WhatsApp (WSP)</b></td><td>43</td><td>S/ 4.0 – 27.0</td><td>0.93</td><td>0.47 – 1.42</td><td>Muy incierto: no se distingue de lineal ni de fuertemente decreciente.</td></tr></tbody></table></div>
 <div class="grid2" style="margin-top:12px">
 <div><h3>Costo marginal vs. costo promedio (WhatsApp)</h3><div class="chart" id="chMarg"></div><div class="legend"><span><i style="background:var(--blue)"></i>Costo promedio por conversación</span><span><i style="background:var(--brand)"></i>Costo de la conversación adicional</span></div></div>
 <div><h3>Conversaciones vs. gasto diario (WhatsApp)</h3><div class="chart" id="chScatter"></div><div class="legend"><span><i style="background:var(--brand)"></i>Un día</span><span><i style="background:var(--ink2)"></i>Curva ajustada</span></div></div></div>
-<div class="ins win"><b>Visitas al perfil: se puede subir.</b> De S/ 5 a S/ 11 al día el costo pasó de S/ 0.11 a S/ 0.12 (1–4 oct: S/ 0.12 con S/ 11 al día). La curva es casi una línea recta.</div>
-<div class="ins"><b>WhatsApp: el costo de la conversación adicional es cerca de S/ 2.7.</b> Es la diferencia de gasto y de conversaciones entre agosto (S/ 10/día, 5.0 conv/día) y fines de septiembre (S/ 21.7/día, 9.3 conv/día). Es 15% más que el promedio, una señal suave de rendimientos decrecientes, pero está mezclada con el mal tramo de septiembre, por eso no es una medición limpia.</div>
+<div class="ins win"><b>Visitas al perfil: se puede subir.</b> Al pasar de S/ 5 a S/ 11 al día, el costo subió de S/ 0.11 a S/ 0.12; la curva es casi una recta.</div>
+<div class="ins"><b>WhatsApp: la conversación adicional cuesta ≈ S/ 2.7</b> (15% sobre el promedio), una señal suave de rendimientos decrecientes. El mal tramo de septiembre se explica por qué anuncio llevó el gasto (sección 02), no por la escala. Una comparación dentro de un mismo anuncio (“Hay antojos…”, de ≈ S/ 3 a ≈ S/ 21 al día) da una cifra parecida, ≈ S/ 2.7, con muestra chica (13 conversaciones en agosto).</div>
 <h3>Cuánto puede costar una conversación para seguir siendo rentable</h3>
 <p class="muted" style="margin-bottom:8px">En la etapa web cada compra costaba S/ 66 (informe de agosto). Una conversación rinde igual si su costo es S/ 66 × la tasa de cierre.</p>
 <div class="tbl"><table><thead><tr><th>Tasa de cierre</th><th>Costo máximo por conversación</th><th>¿Cubre S/ 2.34 (hoy)?</th><th>¿Cubre S/ 2.7 (adicional)?</th></tr></thead><tbody>
@@ -82,6 +86,7 @@ ul{margin:8px 0 0;padding-left:20px}li{margin:5px 0}.src{font-size:12.5px;color:
 <div class="ins alert"><b>Falta el dato que decide todo: cuántas conversaciones cierran en venta.</b> Con cierre de 3% o menos, ni el costo actual se justifica contra la etapa web. Con 5% o más, hay margen para escalar. Necesitamos ese porcentaje (y el ticket promedio) del equipo de ventas antes de subir presupuesto de WhatsApp.</div>
 <h3>Reglas para escalar</h3>
 <ul><li><b>Reactivar WSP</b> a S/ 22 al día (el nivel que funcionó) y mantener 3–4 días.</li>
+<li><b>Pausar “Cuando hay buena comida…”</b> antes de subir el gasto: es el anuncio que arrastró el tramo malo y, con más presupuesto, la entrega automática podría volver a concentrarse en él.</li>
 <li><b>Subir 20% cada 3–4 días</b> hasta un tope de prueba de S/ 30–32 al día (solo se probó hasta S/ 27).</li>
 <li><b>Frenar y volver al escalón anterior</b> si el costo por conversación pasa de S/ 3.00 durante 3 días seguidos o la frecuencia supera 3.</li>
 <li><b>Visitas al perfil:</b> subir de S/ 11 a S/ 14–15 al día con la misma regla.</li>
@@ -150,7 +155,7 @@ ul{margin:8px 0 0;padding-left:20px}li{margin:5px 0}.src{font-size:12.5px;color:
 <h3>Qué falta para cerrar el plan</h3><ul>
 <li><b>Parrilla de contenido:</b> el Sheet no se pudo leer. Hay que habilitar <code>docs.google.com</code> en la red del entorno (Network access → Custom → Allowed domains) o pegar la pestaña como CSV, y se cruza fecha por fecha.</li>
 <li><b>Tasa de cierre y ticket</b> de las conversaciones de WhatsApp (define el tope de costo).</li>
-<li><b>Por qué se apagó WSP el 1 de octubre</b> y qué cambió el 4–16 de septiembre.</li>
+<li><b>Por qué se apagó WSP el 1 de octubre</b> (el registro de cambios de la cuenta no devolvió ediciones).</li>
 <li><b>Presupuesto aprobado de octubre.</b></li></ul>
 </section>
 <p class="src" style="text-align:center;margin-top:24px">La Botanería · Informe de Meta Ads · septiembre 2026. Datos: Meta Ads, 12 ago – 4 oct 2026.</p>
