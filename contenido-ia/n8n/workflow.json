@@ -1,0 +1,620 @@
+{
+  "name": "Contenido tienda de ropa",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "Formulario",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        300
+      ],
+      "parameters": {
+        "formTitle": "Nuevo contenido de ropa",
+        "formDescription": "Sube la foto y los datos del conjunto",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Foto",
+              "fieldType": "file",
+              "requiredField": true,
+              "multipleFiles": false,
+              "acceptFileTypes": ".jpg,.jpeg,.png,.webp"
+            },
+            {
+              "fieldLabel": "Nombre del conjunto",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Descripción",
+              "fieldType": "textarea",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Ocasión",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Casual"
+                  },
+                  {
+                    "option": "Nocturna"
+                  },
+                  {
+                    "option": "Boda / evento"
+                  },
+                  {
+                    "option": "Desayuno / día"
+                  },
+                  {
+                    "option": "Oficina"
+                  }
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "webhookId": "tienda-ropa-form"
+    },
+    {
+      "id": "2",
+      "name": "Subir foto a ComfyUI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        300
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.COMFY_URL }}/upload/image",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "image",
+              "inputDataFieldName": "field-0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "3",
+      "name": "Generar copy (Ollama)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        300
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.OLLAMA_URL }}/api/generate",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({model: $env.OLLAMA_MODEL, stream:false, format:'json', prompt: 'Eres community manager de una tienda de ropa. Conjunto: ' + $('Formulario').item.json['Nombre del conjunto'] + '. Ocasión: ' + $('Formulario').item.json['Ocasión'] + '. Descripción: ' + $('Formulario').item.json['Descripción'] + '. Responde SOLO JSON con las claves instagram (copy corto con emojis y 5-8 hashtags) y facebook (copy más descriptivo, sin hashtags excesivos, con llamado a escribirnos por mensaje) y motion (frase en INGLÉS de 15 palabras describiendo un movimiento de cámara elegante para un video de moda).'}) }}"
+      }
+    },
+    {
+      "id": "4",
+      "name": "Preparar prompt ComfyUI",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        300
+      ],
+      "parameters": {
+        "jsCode": "const copy = JSON.parse($input.first().json.response);\nconst imageName = $('Subir foto a ComfyUI').first().json.name;\n// === PEGA AQUÍ tu workflow exportado desde ComfyUI con 'Save (API Format)' ===\n// Reemplaza el nombre de imagen del nodo LoadImage por '__IMAGE__' y el texto positivo por '__MOTION__'.\nconst template = null; // <- reemplaza null por tu objeto JSON exportado\nif (!template) throw new Error('Falta pegar el workflow de ComfyUI (ver README).');\nconst wf = JSON.parse(JSON.stringify(template).replace('__IMAGE__', imageName).replace('__MOTION__', (copy.motion||'').replace(/\"/g,'')));\nreturn [{ json: { copy, prompt: wf } }];"
+      }
+    },
+    {
+      "id": "5",
+      "name": "Encolar video",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        300
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.COMFY_URL }}/prompt",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({prompt: $json.prompt}) }}"
+      }
+    },
+    {
+      "id": "6",
+      "name": "Esperar 30s",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1200,
+        300
+      ],
+      "parameters": {
+        "amount": 30,
+        "unit": "seconds"
+      }
+    },
+    {
+      "id": "7",
+      "name": "Consultar estado",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1440,
+        300
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $env.COMFY_URL }}/history/{{ $('Encolar video').first().json.prompt_id }}"
+      }
+    },
+    {
+      "id": "8",
+      "name": "¿Terminó?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1680,
+        300
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "typeValidation": "loose"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "c1",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              },
+              "leftValue": "={{ !!$json[$('Encolar video').first().json.prompt_id]?.outputs && Object.keys($json[$('Encolar video').first().json.prompt_id].outputs).length > 0 }}",
+              "rightValue": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "9",
+      "name": "Extraer archivo",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1920,
+        200
+      ],
+      "parameters": {
+        "jsCode": "const id = $('Encolar video').first().json.prompt_id;\nconst outs = $input.first().json[id].outputs;\nlet file;\nfor (const o of Object.values(outs)) { const arr = o.videos || o.gifs || o.images; if (arr && arr.length) { file = arr[0]; break; } }\nif (!file) throw new Error('ComfyUI no devolvió video');\nconst copy = $('Preparar prompt ComfyUI').first().json.copy;\nreturn [{ json: { filename: file.filename, subfolder: file.subfolder || '', type: file.type || 'output', copy } }];"
+      }
+    },
+    {
+      "id": "10",
+      "name": "Descargar video",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2160,
+        200
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $env.COMFY_URL }}/view",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "filename",
+              "value": "={{ $json.filename }}"
+            },
+            {
+              "name": "subfolder",
+              "value": "={{ $json.subfolder }}"
+            },
+            {
+              "name": "type",
+              "value": "={{ $json.type }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "11",
+      "name": "Enviar a aprobación (Telegram)",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2400,
+        200
+      ],
+      "parameters": {
+        "operation": "sendVideo",
+        "chatId": "={{ $env.TELEGRAM_CHAT_ID }}",
+        "binaryData": true,
+        "binaryPropertyName": "data",
+        "additionalFields": {
+          "caption": "=🎬 {{ $('Formulario').item.json['Nombre del conjunto'] }}\n\n📸 IG:\n{{ $('Extraer archivo').first().json.copy.instagram }}\n\n📘 FB:\n{{ $('Extraer archivo').first().json.copy.facebook }}\n\n✅ Aprobar: {{ $execution.resumeUrl }}?decision=aprobar\n❌ Rechazar: {{ $execution.resumeUrl }}?decision=rechazar"
+        }
+      },
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram bot"
+        }
+      }
+    },
+    {
+      "id": "12",
+      "name": "Esperar aprobación",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2640,
+        200
+      ],
+      "parameters": {
+        "resume": "webhook",
+        "httpMethod": "GET",
+        "options": {}
+      },
+      "webhookId": "aprobacion-contenido"
+    },
+    {
+      "id": "13",
+      "name": "¿Aprobado?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2880,
+        200
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "typeValidation": "loose"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "c2",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              },
+              "leftValue": "={{ $json.query.decision }}",
+              "rightValue": "aprobar"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "14",
+      "name": "Re-descargar video",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3120,
+        100
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $env.COMFY_URL }}/view",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "filename",
+              "value": "={{ $('Extraer archivo').first().json.filename }}"
+            },
+            {
+              "name": "subfolder",
+              "value": "={{ $('Extraer archivo').first().json.subfolder }}"
+            },
+            {
+              "name": "type",
+              "value": "={{ $('Extraer archivo').first().json.type }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "15",
+      "name": "Subir video a Postiz",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3360,
+        100
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.POSTIZ_URL }}/public/v1/upload",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $env.POSTIZ_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "16",
+      "name": "Publicar en IG y FB (Postiz)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3600,
+        100
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.POSTIZ_URL }}/public/v1/posts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $env.POSTIZ_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ (() => { const c = $('Extraer archivo').first().json.copy; const media = [{id: $json.id, path: $json.path}]; return JSON.stringify({type:'now', date: new Date().toISOString(), shortLink:false, tags:[], posts:[ {integration:{id:$env.POSTIZ_IG_ID}, value:[{content:c.instagram, image:media}], settings:{__type:'instagram', post_type:'post', is_trial_reel:false, collaborators:[]}}, {integration:{id:$env.POSTIZ_FB_ID}, value:[{content:c.facebook, image:media}], settings:{__type:'facebook'}} ]}); })() }}"
+      }
+    },
+    {
+      "id": "17",
+      "name": "Avisar rechazo",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        3120,
+        320
+      ],
+      "parameters": {
+        "chatId": "={{ $env.TELEGRAM_CHAT_ID }}",
+        "text": "❌ Contenido rechazado, no se publicó."
+      },
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram bot"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Formulario": {
+      "main": [
+        [
+          {
+            "node": "Subir foto a ComfyUI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Subir foto a ComfyUI": {
+      "main": [
+        [
+          {
+            "node": "Generar copy (Ollama)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generar copy (Ollama)": {
+      "main": [
+        [
+          {
+            "node": "Preparar prompt ComfyUI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar prompt ComfyUI": {
+      "main": [
+        [
+          {
+            "node": "Encolar video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Encolar video": {
+      "main": [
+        [
+          {
+            "node": "Esperar 30s",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Esperar 30s": {
+      "main": [
+        [
+          {
+            "node": "Consultar estado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Consultar estado": {
+      "main": [
+        [
+          {
+            "node": "¿Terminó?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "¿Terminó?": {
+      "main": [
+        [
+          {
+            "node": "Extraer archivo",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Esperar 30s",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extraer archivo": {
+      "main": [
+        [
+          {
+            "node": "Descargar video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Descargar video": {
+      "main": [
+        [
+          {
+            "node": "Enviar a aprobación (Telegram)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar a aprobación (Telegram)": {
+      "main": [
+        [
+          {
+            "node": "Esperar aprobación",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Esperar aprobación": {
+      "main": [
+        [
+          {
+            "node": "¿Aprobado?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "¿Aprobado?": {
+      "main": [
+        [
+          {
+            "node": "Re-descargar video",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Avisar rechazo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Re-descargar video": {
+      "main": [
+        [
+          {
+            "node": "Subir video a Postiz",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Subir video a Postiz": {
+      "main": [
+        [
+          {
+            "node": "Publicar en IG y FB (Postiz)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

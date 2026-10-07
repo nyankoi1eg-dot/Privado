@@ -1,0 +1,59 @@
+# n8n + Postiz (self-hosted). ComfyUI y Ollama corren FUERA de Docker, en Windows.
+# Desde los contenedores se alcanzan con host.docker.internal.
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    restart: unless-stopped
+    ports: ["5678:5678"]
+    environment:
+      - N8N_HOST=localhost
+      - WEBHOOK_URL=http://localhost:5678/
+      - GENERIC_TIMEZONE=America/Bogota
+      - N8N_BLOCK_ENV_ACCESS_IN_NODE=false
+      - COMFY_URL=http://host.docker.internal:8188
+      - OLLAMA_URL=http://host.docker.internal:11434
+      - OLLAMA_MODEL=qwen2.5:7b
+      - POSTIZ_URL=http://postiz:5000/api
+      - POSTIZ_API_KEY=${POSTIZ_API_KEY}
+      - POSTIZ_IG_ID=${POSTIZ_IG_ID}
+      - POSTIZ_FB_ID=${POSTIZ_FB_ID}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
+    extra_hosts: ["host.docker.internal:host-gateway"]
+    volumes: ["n8n_data:/home/node/.n8n"]
+
+  postiz:
+    image: ghcr.io/gitroomhq/postiz-app:latest
+    restart: unless-stopped
+    ports: ["5000:5000"]
+    environment:
+      MAIN_URL: ${POSTIZ_PUBLIC_URL}
+      FRONTEND_URL: ${POSTIZ_PUBLIC_URL}
+      NEXT_PUBLIC_BACKEND_URL: ${POSTIZ_PUBLIC_URL}/api
+      JWT_SECRET: ${POSTIZ_JWT_SECRET}
+      DATABASE_URL: postgresql://postiz:${POSTIZ_DB_PASSWORD}@postiz-db:5432/postiz
+      REDIS_URL: redis://postiz-redis:6379
+      BACKEND_INTERNAL_URL: http://localhost:3000
+      IS_GENERAL: "true"
+      DISABLE_REGISTRATION: "false"   # poner "true" tras crear tu cuenta
+      STORAGE_PROVIDER: local
+      UPLOAD_DIRECTORY: /uploads
+      NEXT_PUBLIC_UPLOAD_DIRECTORY: /uploads
+      FACEBOOK_APP_ID: ${FACEBOOK_APP_ID}
+      FACEBOOK_APP_SECRET: ${FACEBOOK_APP_SECRET}
+    volumes: ["postiz_config:/config/", "postiz_uploads:/uploads/"]
+    depends_on: [postiz-db, postiz-redis]
+
+  postiz-db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postiz
+      POSTGRES_PASSWORD: ${POSTIZ_DB_PASSWORD}
+      POSTGRES_DB: postiz
+    volumes: ["postiz_db:/var/lib/postgresql/data"]
+
+  postiz-redis:
+    image: redis:7.2
+    restart: unless-stopped
+
+volumes: { n8n_data: {}, postiz_config: {}, postiz_uploads: {}, postiz_db: {} }
